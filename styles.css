@@ -1,0 +1,13 @@
+.bar {
+    border: 1px solid yellow;
+    width: 30px;
+    background-color: rgb(216, 218, 155);
+  }
+
+#bars {
+    display: flex;
+  }
+
+.length {
+    color: black;
+}
