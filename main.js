@@ -33,6 +33,21 @@ function reArrange(arr) {
     }
 }
 
+function minValue(arr, existArr) {
+    min = Infinity
+    exist = [...existArr];
+    for (let i=0; i<arr.length; i++) {
+        if (exist.includes(arr[i])) {
+            exist.splice(exist.indexOf(arr[i]), 1);
+        } else {
+            if (arr[i] < min) {
+                min = arr[i]
+            }
+        }
+    }
+    return min
+}
+
 
 async function insertionSort(arr) {
     var newArr = [arr[0]];
@@ -48,6 +63,17 @@ async function insertionSort(arr) {
 }
 
 
+async function selectionSort(arr) {
+    start = 0
+    newArr = [];
+    for (let i=0; i<arr.length; i++) {
+        min = minValue(arr, newArr);
+        newArr.push(min);
+        reArrange(newArr);
+        await sleep(20);
+    }
+}
+
 var arrays = []
 
 for (let i=0; i<ARRAY_NUMS; i++) {
@@ -55,5 +81,6 @@ for (let i=0; i<ARRAY_NUMS; i++) {
     arrays.push(height);
 }
 
-insertionSort(arrays);
 
+// insertionSort(arrays);
+selectionSort(arrays)
